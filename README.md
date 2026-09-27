@@ -2,6 +2,12 @@
 
 中学1年生から約1年で英検準2級を目指す、島育成型の英語学習PWAです。
 
+## v0.5
+- v0.4 learning-data compatibility and automatic migration
+- Preserves Stars, mastery, skill mastery, reviews, mistakes, study days and history
+- Adds versioned state schema for future migrations
+- Adds JSON learning-data backup export
+
 ## v0.2
 - Smartphone-first UI
 - Vocabulary / Grammar / Review demo quest
