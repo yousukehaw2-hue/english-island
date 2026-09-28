@@ -9,3 +9,5 @@ let engine=script.slice(0,cut);
 engine += '\n'+tests;
 fs.writeFileSync('.ci-generated-tests.js',engine);
 console.log('Generated executable regression suite from production engine.');
+
+// ci-trigger: 2026-09-29
