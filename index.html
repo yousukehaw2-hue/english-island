@@ -8,37 +8,8 @@
 <main id="journey" class="screen"><section class="card"><h2>🗺 12か月の旅</h2><p>🌱 <b>World 1 — Foundations</b><br><span class="muted">中1基礎・現在地</span></p><p>☕ World 2 — Step Up<br><span class="muted">中2英語</span></p><p>📚 World 3 — Grammar Town<br><span class="muted">中3英語</span></p><p>🏰 Major Challenge<br><span class="muted">英検3級</span></p><p>✈️ Final Journey<br><span class="muted">英検準2級</span></p></section></main>
 <main id="mypage" class="screen"><section class="card"><h2>📊 My English</h2><div id="skills"></div><div class="insight" id="insight"></div><p class="muted">数字はこのアプリ内での学習履歴から算出する習熟度です。英検の合格確率ではありません。</p><div class="insight"><b>💾 学習データ</b><br><span class="mini">データ形式 v<span id="dataVersion"></span> ・ v0.4以前の記録は自動移行して保持します。</span></div><button class="secondary" id="changeBuddy">相棒を変更する</button><br><br><button class="secondary" id="exportData">バックアップを書き出す</button><br><br><button class="secondary" id="reset">最初からやり直す</button></section></main>
 <nav><button data-go="home"><b>🏠</b>Home</button><button id="questnav"><b>✅</b>Quest</button><button data-go="island"><b>🏝</b>Island</button><button data-go="journey"><b>🗺</b>Journey</button><button data-go="mypage"><b>👧</b>My Page</button></nav></div>
+<script src="./curriculum-data.js"></script>
 <script>
-const bank=[
-{id:"v1",type:"vocab",skill:"vocab_basic",label:"🌱 Vocabulary",q:"usually",sub:"どんな意味？",c:["ときどき","たいてい","決して～ない","すぐに"],a:1,e:"usually = たいてい／ふつうは。I usually get up at seven."},
-{id:"v2",type:"vocab",skill:"vocab_basic",label:"🌱 Vocabulary",q:"important",sub:"どんな意味？",c:["重要な","難しい","静かな","必要ない"],a:0,e:"important = 重要な。This is an important question."},
-{id:"v3",type:"vocab",skill:"vocab_basic",label:"🌱 Vocabulary",q:"different",sub:"どんな意味？",c:["同じ","異なる","美しい","危険な"],a:1,e:"different = 異なる。My idea is different from yours."},
-{id:"v4",type:"vocab",skill:"vocab_basic",label:"🌱 Vocabulary",q:"practice",sub:"どんな意味？",c:["練習する","忘れる","招待する","旅行する"],a:0,e:"practice = 練習する。I practice the piano every day."},
-{id:"g1",type:"grammar",skill:"grammar_be",label:"🔨 Grammar",q:"I (  ) a student.",sub:"正しい語を選ぼう",c:["am","is","are","be"],a:0,e:"主語が I の be動詞は am。",mis:["be_subject","be_subject","be_subject","be_subject"]},
-{id:"g2",type:"grammar",skill:"grammar_third",label:"🔨 Grammar",q:"She (  ) English every day.",sub:"正しい語を選ぼう",c:["study","studies","studying","studied"],a:1,e:"She の現在形なので studies。三単現の -s に注目。",mis:["third_person","","tense_confusion","tense_confusion"]},
-{id:"g3",type:"grammar",skill:"grammar_question",label:"🔨 Grammar",q:"(  ) you play tennis?",sub:"正しい語を選ぼう",c:["Are","Do","Does","Is"],a:1,e:"一般動詞 play の疑問文で主語が you なので Do。",mis:["be_vs_do","","third_person","be_vs_do"]},
-{id:"g4",type:"grammar",skill:"grammar_past",label:"🔨 Grammar",q:"We (  ) soccer yesterday.",sub:"正しい語を選ぼう",c:["play","plays","played","playing"],a:2,e:"yesterday があるので過去形 played。",mis:["tense_confusion","third_person","","tense_confusion"]},
-{id:"l1",type:"listening",skill:"listening_basic",label:"🎵 Listening",q:"音声を聞いて選ぼう",sub:"What does she like?",speech:"I like music very much.",c:["Music","Tennis","English","Dogs"],a:0,e:"I like music very much. → 好きなのは music。"},
-{id:"l2",type:"listening",skill:"listening_basic",label:"🎵 Listening",q:"音声を聞いて選ぼう",sub:"What time does he get up?",speech:"I get up at seven every morning.",c:["6:00","7:00","8:00","9:00"],a:1,e:"at seven = 7時。"},
-{id:"l3",type:"listening",skill:"listening_detail",label:"🎵 Listening",q:"音声を聞いて選ぼう",sub:"Where is the book?",speech:"The book is on the desk.",c:["On the desk","Under the desk","In the bag","By the door"],a:0,e:"on the desk = 机の上。"},
-{id:"g5",type:"grammar",skill:"grammar_can",label:"🔨 Grammar",q:"He can (  ) very fast.",sub:"正しい語を選ぼう",c:["runs","run","ran","running"],a:1,e:"can の後ろは動詞の原形なので run。",mis:["modal_base","","tense_confusion","modal_base"]}
-,
-{id:"v5",type:"vocab",skill:"vocab_school",label:"🌱 Vocabulary",q:"library",sub:"どんな意味？",c:["体育館","図書館","教室","職員室"],a:1,e:"library = 図書館。I study in the library."},
-{id:"v6",type:"vocab",skill:"vocab_daily",label:"🌱 Vocabulary",q:"before",sub:"どんな意味？",c:["～の前に","～の後に","～の間","～の近く"],a:0,e:"before = ～の前に。Wash your hands before dinner."},
-{id:"v7",type:"vocab",skill:"vocab_feeling",label:"🌱 Vocabulary",q:"excited",sub:"どんな意味？",c:["疲れた","わくわくした","怒った","眠い"],a:1,e:"excited = わくわくした。I am excited about the trip."},
-{id:"v8",type:"vocab",skill:"vocab_daily",label:"🌱 Vocabulary",q:"sometimes",sub:"どんな意味？",c:["いつも","決して","ときどき","すぐに"],a:2,e:"sometimes = ときどき。I sometimes play tennis."},
-{id:"g6",type:"grammar",skill:"grammar_negative",label:"🔨 Grammar",q:"I (  ) like math.",sub:"否定文にしよう",c:["am not","don't","doesn't","not"],a:1,e:"I + 一般動詞の否定文は don't + 動詞の原形。",mis:["be_vs_do","","third_person","negative_form"]},
-{id:"g7",type:"grammar",skill:"grammar_third",label:"🔨 Grammar",q:"Tom (  ) soccer on Sundays.",sub:"正しい語を選ぼう",c:["play","plays","playing","played"],a:1,e:"Tom は he と同じ三人称単数なので plays。",mis:["third_person","","tense_confusion","tense_confusion"]},
-{id:"g8",type:"grammar",skill:"grammar_can",label:"🔨 Grammar",q:"(  ) you swim?",sub:"「泳げますか？」になる語は？",c:["Do","Are","Can","Does"],a:2,e:"能力をたずねるときは Can you ...? を使います。",mis:["modal_can","be_vs_do","","third_person"]},
-{id:"g9",type:"grammar",skill:"grammar_past",label:"🔨 Grammar",q:"I (  ) to Nagoya yesterday.",sub:"正しい語を選ぼう",c:["go","goes","went","going"],a:2,e:"yesterday なので go の過去形 went。",mis:["tense_confusion","third_person","","tense_confusion"]},
-{id:"g10",type:"grammar",skill:"grammar_wh",label:"🔨 Grammar",q:"(  ) do you live?",sub:"「どこに住んでいますか？」",c:["What","When","Where","Who"],a:2,e:"場所をたずねる疑問詞は Where。"},
-{id:"l4",type:"listening",skill:"listening_detail",label:"🎵 Listening",q:"音声を聞いて選ぼう",sub:"What does Ken do after school?",speech:"Ken plays basketball after school.",c:["He studies.","He plays basketball.","He cooks.","He reads."],a:1,e:"plays basketball after school と聞こえれば正解。"},
-{id:"l5",type:"listening",skill:"listening_time",label:"🎵 Listening",q:"音声を聞いて選ぼう",sub:"When does the class start?",speech:"Our English class starts at nine thirty.",c:["8:30","9:00","9:30","10:30"],a:2,e:"nine thirty = 9:30。"},
-{id:"r1",type:"reading",skill:"reading_detail",label:"📚 Reading",q:"Mika has a dog. She walks with him every morning.",sub:"When does Mika walk with her dog?",c:["Every morning","Every night","On Sunday","After lunch"],a:0,e:"every morning が答えの手がかりです。"},
-{id:"r2",type:"reading",skill:"reading_main",label:"📚 Reading",q:"I like science. We do interesting experiments at school. Science is my favorite subject.",sub:"What is this mainly about?",c:["School lunch","A favorite subject","Sports","A family"],a:1,e:"science と favorite subject が繰り返されているので、好きな教科についての文章です。"},
-{id:"r3",type:"reading",skill:"reading_detail",label:"📚 Reading",q:"Aya gets up at six thirty. She eats breakfast and leaves home at seven thirty.",sub:"What time does Aya leave home?",c:["6:00","6:30","7:00","7:30"],a:3,e:"leaves home at seven thirty = 7:30。"},
-{id:"r4",type:"reading",skill:"reading_inference",label:"📚 Reading",q:"It is raining today. Yuki takes an umbrella when she leaves home.",sub:"Why does Yuki take an umbrella?",c:["It is hot.","It is raining.","She likes blue.","She goes swimming."],a:1,e:"raining と umbrella の関係を読み取ります。"}
-];
 const STORAGE_KEY="ei-state",CURRENT_VERSION=8;
 const defaultState=()=>({version:CURRENT_VERSION,stars:0,streak:1,diagnosed:false,level:"Starter",lastStudy:"",studyDays:[],mastery:{vocab:20,grammar:20,listening:20,reading:20},skillMastery:{},reviews:[],mistakes:{},history:[],migrationLog:[],buddy:"rabbit",feedback:[],dailyGoal:12,questionHistory:{},graceAvailable:true,facilities:{garden:1,workshop:1,library:1,music:1}});
 function migrate(raw){
@@ -109,7 +80,8 @@ function render(){document.querySelectorAll("[data-buddy]").forEach(x=>x.textCon
 function misName(x){return({third_person:"三単現 -s",tense_confusion:"時制",be_vs_do:"be動詞とDo",be_subject:"be動詞の使い分け",modal_base:"助動詞＋原形"})[x]||x}
 function show(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");scrollTo(0,0);render()}
 function diagnostic(){mode="diagnostic";qs=[bank.find(q=>q.id==="v1"),bank.find(q=>q.id==="v2"),bank.find(q=>q.id==="g1"),bank.find(q=>q.id==="g2"),bank.find(q=>q.id==="l1"),bank.find(q=>q.id==="l2"),bank.find(q=>q.id==="r1"),bank.find(q=>q.id==="r2")];begin()}
-function pickDaily(){
+function pickDaily(){return enginePickDaily(state,today(),state.dailyGoal||12)}
+function pickDailyLegacy(){
  const target=Math.max(8,Math.min(14,state.dailyGoal||12)),selected=[];
  const add=q=>{if(q&&!selected.some(x=>x.id===q.id)&&selected.length<target)selected.push(q)};
  const due=(state.reviews||[]).filter(r=>r.due<=today()).sort((a,b)=>a.due.localeCompare(b.due)).map(r=>bank.find(q=>q.id===r.id)).filter(Boolean);
