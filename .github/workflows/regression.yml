@@ -22,6 +22,6 @@ jobs:
       - name: Build executable engine test
         run: |
           node ci-runner.js
-      - name: Run 25 regression scenarios
+      - name: Run regression and curriculum validation
         run: |
           node .ci-generated-tests.js
