@@ -81,9 +81,13 @@ function enginePickDaily(st,day,targetOverride){
  (st.reviews||[]).filter(r=>r.due<=day).sort((a,b)=>a.due.localeCompare(b.due)).map(r=>bank.find(q=>q.id===r.id)).filter(Boolean).slice(0,Math.ceil(target*.30)).forEach(add);
  const topMis=Object.entries(st.mistakes||{}).sort((a,b)=>b[1]-a[1]).slice(0,2).map(x=>x[0]);
  bank.filter(q=>q.mis&&q.mis.some(x=>topMis.includes(x))).forEach(add);
- const mm=t=>Math.round((st.mastery&&st.mastery[t])||0);
- for(const type of ["vocab","grammar","listening","reading"].sort((a,b)=>mm(a)-mm(b)))bank.filter(q=>q.type===type).sort((a,b)=>(st.skillMastery[a.skill]||30)-(st.skillMastery[b.skill]||30)).forEach(add);
- bank.filter(q=>q.type==="listening"&&!recentEnough(st,q.id,day)).forEach(add);bank.filter(q=>!recentEnough(st,q.id,day)).forEach(add);bank.forEach(add);
+ const mm=t=>Math.round((st.mastery&&st.mastery[t])||0),types=["vocab","grammar","listening","reading"].sort((a,b)=>mm(a)-mm(b));
+ const fresh={},recent={};for(const type of types){const qs=bank.filter(q=>q.type===type).sort((a,b)=>(st.skillMastery[a.skill]||30)-(st.skillMastery[b.skill]||30));fresh[type]=qs.filter(q=>!recentEnough(st,q.id,day));recent[type]=qs.filter(q=>recentEnough(st,q.id,day))}
+ // Round-robin across domains keeps the quest varied while prioritizing weak skills and unseen/recently-unused questions.
+ while(selected.length<target&&types.some(t=>fresh[t].length)){for(const type of types){while(fresh[type].length&&selected.some(x=>x.id===fresh[type][0].id))fresh[type].shift();add(fresh[type].shift());if(selected.length>=target)break}}
+ // Only reuse a recently seen item when fresh candidates cannot fill the quest.
+ while(selected.length<target&&types.some(t=>recent[t].length)){for(const type of types){while(recent[type].length&&selected.some(x=>x.id===recent[type][0].id))recent[type].shift();add(recent[type].shift());if(selected.length>=target)break}}
+ bank.forEach(add);
  const mixed=[],queues={vocab:[],grammar:[],listening:[],reading:[]};selected.forEach(q=>(queues[q.type]||(queues[q.type]=[])).push(q));let last="";
  while(mixed.length<target){const choices=Object.keys(queues).filter(k=>queues[k].length&&k!==last).sort((a,b)=>queues[b].length-queues[a].length);let k=choices[0];if(!k)k=Object.keys(queues).filter(k=>queues[k].length).sort((a,b)=>queues[b].length-queues[a].length)[0];if(!k)break;mixed.push(queues[k].shift());last=k}
  return mixed
