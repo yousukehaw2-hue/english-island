@@ -34,4 +34,7 @@ function acyclic(){const seen=new Set(),stack=new Set(),map=Object.fromEntries(S
 ok("37 skill tree acyclic",acyclic());
 ok("38 schema complete",bank.every(q=>q.concept&&q.school_grade&&q.sibling_group&&q.question_type&&q.version===8));
 let prod=enginePickDaily(s,D,12);ok("39 200-bank quest generation",prod.length===12&&new Set(prod.map(q=>q.type)).size===4);
+ok("40 AI review 200",typeof AI_REVIEW!=="undefined"&&Object.keys(AI_REVIEW).length===200);
+ok("41 review classes",bank.every(q=>["KEEP","REVISE","REPLACE"].includes(AI_REVIEW[q.id].status)));
+ok("42 human flags",bank.every(q=>AI_REVIEW[q.id].humanRequired===(AI_REVIEW[q.id].status!=="KEEP")));
 console.table(R);const passed=R.filter(x=>x.pass).length,all=R.every(x=>x.pass);console.log("RESULT",passed+"/"+R.length,all?"PASS":"FAIL");if(!all&&typeof process!=="undefined")process.exitCode=1;return R})();
