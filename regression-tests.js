@@ -17,4 +17,21 @@ let br=updateStreak({...s,lastStudy:"2026-09-24",streak:9},D);ok("22 streak rest
 ok("23 labels",masteryLabel(95)==="Mastered"&&masteryLabel(45)==="Growing");
 ok("24 facilities",facilityLevels({...s,mastery:{vocab:61,grammar:20,listening:40,reading:80}}).library===5);
 ok("25 buddy preserve",engineMigrate({...s,buddy:"cat"}).buddy==="cat");
-console.table(R);console.log("RESULT",R.filter(x=>x.pass).length+"/"+R.length,R.every(x=>x.pass)?"PASS":"FAIL");return R})();
+const ids=new Set(bank.map(q=>q.id)),skills=new Set(SKILL_TREE.map(s=>s.id));
+ok("26 bank 200",bank.length===200);
+ok("27 unique question ids",ids.size===bank.length);
+ok("28 valid skill ids",bank.every(q=>skills.has(q.skill)));
+ok("29 answer in choices",bank.every(q=>Array.isArray(q.c)&&q.a>=0&&q.a<q.c.length));
+ok("30 explanations",bank.every(q=>typeof q.e==="string"&&q.e.length>0));
+ok("31 difficulty range",bank.every(q=>q.difficulty>=1&&q.difficulty<=5));
+ok("32 eiken mapping",bank.every(q=>EIKEN_LEVELS.includes(q.eiken_level)));
+ok("33 skill prerequisites",SKILL_TREE.every(s=>s.prerequisite.every(p=>skills.has(p))));
+ok("34 misconception ids",SKILL_TREE.every(s=>s.misconceptions.every(m=>Object.prototype.hasOwnProperty.call(MISCONCEPTIONS,m))));
+ok("35 question misconception ids",bank.every(q=>(q.mis||[]).filter(Boolean).every(m=>Object.prototype.hasOwnProperty.call(MISCONCEPTIONS,m))));
+const counts=bank.reduce((a,q)=>(a[q.type]=(a[q.type]||0)+1,a),{});
+ok("36 domain counts",counts.vocab===60&&counts.grammar===60&&counts.listening===40&&counts.reading===40);
+function acyclic(){const seen=new Set(),stack=new Set(),map=Object.fromEntries(SKILL_TREE.map(s=>[s.id,s]));function visit(id){if(stack.has(id))return false;if(seen.has(id))return true;stack.add(id);for(const p of map[id].prerequisite)if(!visit(p))return false;stack.delete(id);seen.add(id);return true}return SKILL_TREE.every(s=>visit(s.id))}
+ok("37 skill tree acyclic",acyclic());
+ok("38 schema complete",bank.every(q=>q.concept&&q.school_grade&&q.sibling_group&&q.question_type&&q.version===8));
+let prod=enginePickDaily(s,D,12);ok("39 200-bank quest generation",prod.length===12&&new Set(prod.map(q=>q.type)).size===4);
+console.table(R);const passed=R.filter(x=>x.pass).length,all=R.every(x=>x.pass);console.log("RESULT",passed+"/"+R.length,all?"PASS":"FAIL");if(!all&&typeof process!=="undefined")process.exitCode=1;return R})();
