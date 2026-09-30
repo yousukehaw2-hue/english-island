@@ -10,7 +10,7 @@
 <main id="review" class="screen"><section class="card"><span class="badge">CURRICULUM QA</span><h2>🧪 教材レビュー</h2><p class="muted">AIが200問を全件一次レビュー。人間確認が必要な REVISE / REPLACE のみ表示します。</p><div id="reviewSummary" class="insight"></div><div style="display:flex;gap:6px;margin:10px 0"><button class="secondary reviewFilter" data-rf="ALL">要確認すべて</button><button class="secondary reviewFilter" data-rf="REVISE">REVISE</button><button class="secondary reviewFilter" data-rf="REPLACE">REPLACE</button></div><div id="reviewList"></div><button class="secondary" data-go="mypage">← My Pageへ戻る</button></section></main>
 <nav><button data-go="home"><b>🏠</b>Home</button><button id="questnav"><b>✅</b>Quest</button><button data-go="island"><b>🏝</b>Island</button><button data-go="journey"><b>🗺</b>Journey</button><button data-go="mypage"><b>👧</b>My Page</button></nav></div>
 <script src="./curriculum-data.js"></script>
-<script src="./curriculum-review.js"></script>
+<script src="./quality-pass-v081.js"></script>\n<script src="./curriculum-review.js"></script>
 <script>
 const STORAGE_KEY="ei-state",CURRENT_VERSION=8;
 const defaultState=()=>({version:CURRENT_VERSION,stars:0,streak:1,diagnosed:false,level:"Starter",lastStudy:"",studyDays:[],mastery:{vocab:20,grammar:20,listening:20,reading:20},skillMastery:{},reviews:[],mistakes:{},history:[],migrationLog:[],buddy:"rabbit",feedback:[],dailyGoal:12,questionHistory:{},graceAvailable:true,facilities:{garden:1,workshop:1,library:1,music:1}});
