@@ -3,7 +3,7 @@
 const MISCONCEPTIONS={
  be_subject:"be動詞と主語の対応",be_vs_do:"be動詞とdoの混同",third_person:"三単現-sの脱落",
  verb_after_does:"does後の動詞原形",tense_confusion:"時制の混同",negative_form:"否定文の形",
- modal_base:"助動詞後の原形",wh_choice:"疑問詞の選択",time_confusion:"時刻の聞き違い",
+ modal_base:"助動詞後の原形",wh_choice:"疑問詞の選択",infinitive_form:"不定詞to＋動詞原形の形",gerund_form:"動名詞-ingの形・目的語選択",comparison_form:"比較級・最上級の形",passive_form:"be動詞＋過去分詞の受動態",time_confusion:"時刻の聞き違い",
  number_confusion:"数の聞き違い",detail_missed:"詳細情報の見落とし",main_idea_confusion:"主題の取り違い",
  pronoun_reference:"代名詞の指示対象",unsupported_inference:"根拠のない推測",word_meaning:"語義の未定着"
 };
@@ -25,10 +25,10 @@ const SKILL_TREE=[
  {id:"grammar_progressive",domain:"grammar",name:"進行形",school:{stage:"JHS1-2",unit:"progressive"},eiken:{grade4:"core",grade3:"core",pre2:"prerequisite"},prerequisite:["grammar_be","grammar_present"],misconceptions:["tense_confusion"]},
  {id:"grammar_past",domain:"grammar",name:"過去形",school:{stage:"JHS1-2",unit:"past"},eiken:{grade4:"core",grade3:"core",pre2:"prerequisite"},prerequisite:["grammar_present"],misconceptions:["tense_confusion"]},
  {id:"grammar_future",domain:"grammar",name:"未来表現",school:{stage:"JHS2",unit:"future"},eiken:{grade4:"bridge",grade3:"core",pre2:"prerequisite"},prerequisite:["grammar_present"],misconceptions:["tense_confusion"]},
- {id:"grammar_infinitive",domain:"grammar",name:"不定詞",school:{stage:"JHS2",unit:"infinitive"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_present"],misconceptions:["tense_confusion"]},
- {id:"grammar_gerund",domain:"grammar",name:"動名詞",school:{stage:"JHS2",unit:"gerund"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_present"],misconceptions:["tense_confusion"]},
- {id:"grammar_comparison",domain:"grammar",name:"比較",school:{stage:"JHS2",unit:"comparison"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_be"],misconceptions:["tense_confusion"]},
- {id:"grammar_passive",domain:"grammar",name:"受動態",school:{stage:"JHS2-3",unit:"passive"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_be","grammar_past"],misconceptions:["tense_confusion"]},
+ {id:"grammar_infinitive",domain:"grammar",name:"不定詞",school:{stage:"JHS2",unit:"infinitive"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_present"],misconceptions:["infinitive_form"]},
+ {id:"grammar_gerund",domain:"grammar",name:"動名詞",school:{stage:"JHS2",unit:"gerund"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_present"],misconceptions:["gerund_form"]},
+ {id:"grammar_comparison",domain:"grammar",name:"比較",school:{stage:"JHS2",unit:"comparison"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_be"],misconceptions:["comparison_form"]},
+ {id:"grammar_passive",domain:"grammar",name:"受動態",school:{stage:"JHS2-3",unit:"passive"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_be","grammar_past"],misconceptions:["passive_form"]},
  {id:"grammar_present_perfect",domain:"grammar",name:"現在完了",school:{stage:"JHS3",unit:"present-perfect"},eiken:{grade3:"core",pre2:"core"},prerequisite:["grammar_past"],misconceptions:["tense_confusion"]},
  {id:"grammar_relative",domain:"grammar",name:"関係代名詞",school:{stage:"JHS3",unit:"relative-clause"},eiken:{grade3:"bridge",pre2:"core"},prerequisite:["grammar_present"],misconceptions:["pronoun_reference"]},
  {id:"listening_basic",domain:"listening",name:"基礎応答・語句",school:{stage:"JHS1",unit:"listening-basic"},eiken:{grade5:"core",grade4:"core",grade3:"prerequisite",pre2:"prerequisite"},prerequisite:[],misconceptions:["detail_missed"]},
