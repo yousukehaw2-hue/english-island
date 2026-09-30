@@ -4,10 +4,14 @@ const AI_REVIEW={};
 bank.forEach(q=>{
  let status="KEEP",reasons=[],action="";
  if(q.type==="vocab"){
-   status="REVISE";
-   reasons.push("全語で同一の汎用誤答（難しい/静かな/危険な）を使用しており、語義ごとのもっともらしいDistractorになっていない");
-   reasons.push("単語単体の日英対応のみで、習熟後の文脈理解・転移を測れない");
-   action="語ごとに意味的に近い誤答へ変更し、Siblingには短文・空所補充を追加する";
+   if(q.quality_revision==="v0.8.2"){
+     reasons.push("語義に近いDistractorへ改善済み");
+     if(q.transfer_check) reasons.push("文脈型Transfer Checkへ改善済み");
+   } else {
+     status="REVISE";
+     reasons.push("語義別Distractorまたは文脈Transferの追加確認が必要");
+     action="意味的に近い誤答と短文文脈問題を追加する";
+   }
  } else if(q.type==="grammar"){
    const n=Number(q.id.slice(1));
    if(n>19){
