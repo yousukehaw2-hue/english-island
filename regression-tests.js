@@ -47,4 +47,12 @@ ok("48 correct option unique",bank.every(q=>q.c.filter(x=>x===q.c[q.a]).length==
 ok("49 distractor misconception",replaced.every(q=>q.c.every((_,i)=>i===q.a||!!q.mis[i])));
 ok("50 transfer sibling",replaced.every(q=>typeof q.sibling_group==="string"&&q.sibling_group.includes("-transfer")));
 ok("51 curriculum levels preserved",replaced.every(q=>q.school_grade&&EIKEN_LEVELS.includes(q.eiken_level)));
+const vocabImproved=bank.filter(q=>q.type==="vocab"&&q.quality_revision==="v0.8.2");
+ok("52 vocab improved 60",vocabImproved.length===60);
+ok("53 vocab semantic distractors",vocabImproved.every(q=>q.distractor_quality==="semantic"&&new Set(q.c).size===4));
+ok("54 no generic vocab distractor set",vocabImproved.every(q=>!(q.c.includes("難しい")&&q.c.includes("静かな")&&q.c.includes("危険な"))));
+const vocabTransfer=vocabImproved.filter(q=>q.transfer_check);
+ok("55 vocab context transfer 20",vocabTransfer.length===20);
+ok("56 vocab context schema",vocabTransfer.every(q=>q.question_type==="context_mcq"&&q.sibling_group.includes("context-transfer")));
+ok("57 vocab review cleared",vocabImproved.every(q=>AI_REVIEW[q.id].status==="KEEP"&&!AI_REVIEW[q.id].humanRequired));
 console.table(R);const passed=R.filter(x=>x.pass).length,all=R.every(x=>x.pass);console.log("RESULT",passed+"/"+R.length,all?"PASS":"FAIL");if(!all&&typeof process!=="undefined")process.exitCode=1;return R})();
