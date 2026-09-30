@@ -21,8 +21,12 @@ bank.forEach(q=>{
    } else {
      reasons.push("英文・正答一意性は基礎教材として使用可能");
      if(["grammar_infinitive","grammar_gerund","grammar_comparison","grammar_passive"].includes(q.skill)){
-       status="REVISE"; reasons.push("misconceptionがtense_confusionに集約されすぎており診断粒度が不足");
-       action="Skill固有のmisconceptionを追加し、誤答ごとの原因タグを再設定する";
+       if(q.diagnostic_revision==="v0.8.3"){
+         reasons.push("Skill固有misconceptionへ診断粒度を改善済み");
+       } else {
+         status="REVISE"; reasons.push("Skill固有misconceptionの診断粒度を追加確認する");
+         action="誤答ごとのSkill固有misconceptionを再設定する";
+       }
      }
    }
  } else if(q.type==="listening"){
