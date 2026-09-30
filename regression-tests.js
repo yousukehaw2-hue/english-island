@@ -37,4 +37,14 @@ let prod=enginePickDaily(s,D,12);ok("39 200-bank quest generation",prod.length==
 ok("40 AI review 200",typeof AI_REVIEW!=="undefined"&&Object.keys(AI_REVIEW).length===200);
 ok("41 review classes",bank.every(q=>["KEEP","REVISE","REPLACE"].includes(AI_REVIEW[q.id].status)));
 ok("42 human flags",bank.every(q=>AI_REVIEW[q.id].humanRequired===(AI_REVIEW[q.id].status!=="KEEP")));
+const replaced=bank.filter(q=>q.quality_revision==="v0.8.1");
+ok("43 replace count 105",replaced.length===105);
+ok("44 replace transfer flag",replaced.every(q=>q.transfer_check===true));
+ok("45 transfer skill concept",replaced.every(q=>q.skill===q.concept&&skills.has(q.skill)));
+ok("46 transfer unique prompts",new Set(replaced.map(q=>[q.type,q.q,q.sub||"",q.speech||""].join("|"))).size===replaced.length);
+ok("47 choices unique",bank.every(q=>new Set(q.c).size===q.c.length));
+ok("48 correct option unique",bank.every(q=>q.c.filter(x=>x===q.c[q.a]).length===1));
+ok("49 distractor misconception",replaced.every(q=>q.c.every((_,i)=>i===q.a||!!q.mis[i])));
+ok("50 transfer sibling",replaced.every(q=>typeof q.sibling_group==="string"&&q.sibling_group.includes("-transfer")));
+ok("51 curriculum levels preserved",replaced.every(q=>q.school_grade&&EIKEN_LEVELS.includes(q.eiken_level)));
 console.table(R);const passed=R.filter(x=>x.pass).length,all=R.every(x=>x.pass);console.log("RESULT",passed+"/"+R.length,all?"PASS":"FAIL");if(!all&&typeof process!=="undefined")process.exitCode=1;return R})();
