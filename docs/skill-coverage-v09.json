@@ -1,0 +1,1703 @@
+{
+  "sourceCommit": "22e1c82c2bd4f9e260e9be5c1d50f959c7d5b8c9",
+  "reviewedAt": "2026-10-01",
+  "summary": {
+    "KEEP": 68,
+    "REVISE": 132,
+    "REPLACE": 0
+  },
+  "planningMinimum": 3,
+  "rows": [
+    {
+      "id": "vocab_basic",
+      "name": "基礎生活語彙",
+      "domain": "vocab",
+      "total": 4,
+      "base": 4,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 4,
+      "revise": 0,
+      "replace": 0,
+      "ids": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "groups": {
+        "vocab_basic": [
+          "v1",
+          "v2",
+          "v3",
+          "v4"
+        ]
+      },
+      "prerequisite": [],
+      "school": {
+        "stage": "JHS1",
+        "unit": "basic-life"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "vocab_school",
+      "name": "学校語彙",
+      "domain": "vocab",
+      "total": 1,
+      "base": 1,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 1,
+      "revise": 0,
+      "replace": 0,
+      "ids": [
+        "v5"
+      ],
+      "groups": {
+        "vocab_school": [
+          "v5"
+        ]
+      },
+      "prerequisite": [
+        "vocab_basic"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "school"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "vocab_daily",
+      "name": "日常生活語彙",
+      "domain": "vocab",
+      "total": 12,
+      "base": 12,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 7,
+      "revise": 5,
+      "replace": 0,
+      "ids": [
+        "v6",
+        "v8",
+        "v9",
+        "v10",
+        "v11",
+        "v12",
+        "v13",
+        "v14",
+        "v15",
+        "v16",
+        "v17",
+        "v18"
+      ],
+      "groups": {
+        "vocab_daily": [
+          "v6",
+          "v8",
+          "v9",
+          "v10",
+          "v11",
+          "v12",
+          "v13",
+          "v14",
+          "v15",
+          "v16",
+          "v17",
+          "v18"
+        ]
+      },
+      "prerequisite": [
+        "vocab_basic"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "daily-life"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "vocab_feeling",
+      "name": "感情・人物",
+      "domain": "vocab",
+      "total": 1,
+      "base": 1,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 1,
+      "revise": 0,
+      "replace": 0,
+      "ids": [
+        "v7"
+      ],
+      "groups": {
+        "vocab_feeling": [
+          "v7"
+        ]
+      },
+      "prerequisite": [
+        "vocab_basic"
+      ],
+      "school": {
+        "stage": "JHS1-2",
+        "unit": "people-feelings"
+      },
+      "eiken": {
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "vocab_town",
+      "name": "町・旅行",
+      "domain": "vocab",
+      "total": 7,
+      "base": 7,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 7,
+      "revise": 0,
+      "replace": 0,
+      "ids": [
+        "v19",
+        "v20",
+        "v21",
+        "v22",
+        "v23",
+        "v24",
+        "v25"
+      ],
+      "groups": {
+        "vocab_town": [
+          "v19",
+          "v20",
+          "v21",
+          "v22",
+          "v23",
+          "v24",
+          "v25"
+        ]
+      },
+      "prerequisite": [
+        "vocab_daily"
+      ],
+      "school": {
+        "stage": "JHS1-2",
+        "unit": "town-travel"
+      },
+      "eiken": {
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "vocab_nature",
+      "name": "自然・環境",
+      "domain": "vocab",
+      "total": 6,
+      "base": 6,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 4,
+      "revise": 2,
+      "replace": 0,
+      "ids": [
+        "v26",
+        "v27",
+        "v28",
+        "v29",
+        "v30",
+        "v31"
+      ],
+      "groups": {
+        "vocab_nature": [
+          "v26",
+          "v27",
+          "v28",
+          "v29",
+          "v30",
+          "v31"
+        ]
+      },
+      "prerequisite": [
+        "vocab_daily"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "nature-environment"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "vocab_society",
+      "name": "社会・科学",
+      "domain": "vocab",
+      "total": 29,
+      "base": 9,
+      "transfer": 20,
+      "transferRatio": 0.6896551724137931,
+      "keep": 23,
+      "revise": 6,
+      "replace": 0,
+      "ids": [
+        "v32",
+        "v33",
+        "v34",
+        "v35",
+        "v36",
+        "v37",
+        "v38",
+        "v39",
+        "v40",
+        "v41",
+        "v42",
+        "v43",
+        "v44",
+        "v45",
+        "v46",
+        "v47",
+        "v48",
+        "v49",
+        "v50",
+        "v51",
+        "v52",
+        "v53",
+        "v54",
+        "v55",
+        "v56",
+        "v57",
+        "v58",
+        "v59",
+        "v60"
+      ],
+      "groups": {
+        "vocab_society": [
+          "v32",
+          "v33",
+          "v34",
+          "v35",
+          "v36",
+          "v37",
+          "v38",
+          "v39",
+          "v40"
+        ],
+        "vocab_society-context-transfer": [
+          "v41",
+          "v42",
+          "v43",
+          "v44",
+          "v45",
+          "v46",
+          "v47",
+          "v48",
+          "v49",
+          "v50",
+          "v51",
+          "v52",
+          "v53",
+          "v54",
+          "v55",
+          "v56",
+          "v57",
+          "v58",
+          "v59",
+          "v60"
+        ]
+      },
+      "prerequisite": [
+        "vocab_nature"
+      ],
+      "school": {
+        "stage": "JHS3+",
+        "unit": "society-science"
+      },
+      "eiken": {
+        "grade3": "bridge",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_be",
+      "name": "be動詞",
+      "domain": "grammar",
+      "total": 4,
+      "base": 1,
+      "transfer": 3,
+      "transferRatio": 0.75,
+      "keep": 1,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g1",
+        "g20",
+        "g39",
+        "g58"
+      ],
+      "groups": {
+        "grammar_be": [
+          "g1"
+        ],
+        "grammar_be-transfer": [
+          "g20",
+          "g39",
+          "g58"
+        ]
+      },
+      "prerequisite": [],
+      "school": {
+        "stage": "JHS1",
+        "unit": "be-verb"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "prerequisite",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_present",
+      "name": "一般動詞現在形",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 0,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g11",
+        "g30",
+        "g49"
+      ],
+      "groups": {
+        "grammar_present": [
+          "g11"
+        ],
+        "grammar_present-transfer": [
+          "g30",
+          "g49"
+        ]
+      },
+      "prerequisite": [],
+      "school": {
+        "stage": "JHS1",
+        "unit": "present-simple"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_question",
+      "name": "一般動詞疑問文",
+      "domain": "grammar",
+      "total": 4,
+      "base": 1,
+      "transfer": 3,
+      "transferRatio": 0.75,
+      "keep": 1,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g3",
+        "g22",
+        "g41",
+        "g60"
+      ],
+      "groups": {
+        "grammar_question": [
+          "g3"
+        ],
+        "grammar_question-transfer": [
+          "g22",
+          "g41",
+          "g60"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "questions"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_negative",
+      "name": "一般動詞否定文",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 1,
+      "revise": 2,
+      "replace": 0,
+      "ids": [
+        "g6",
+        "g25",
+        "g44"
+      ],
+      "groups": {
+        "grammar_negative": [
+          "g6"
+        ],
+        "grammar_negative-transfer": [
+          "g25",
+          "g44"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "negatives"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_third",
+      "name": "三単現",
+      "domain": "grammar",
+      "total": 7,
+      "base": 2,
+      "transfer": 5,
+      "transferRatio": 0.7142857142857143,
+      "keep": 0,
+      "revise": 7,
+      "replace": 0,
+      "ids": [
+        "g2",
+        "g7",
+        "g21",
+        "g26",
+        "g40",
+        "g45",
+        "g59"
+      ],
+      "groups": {
+        "grammar_third": [
+          "g2",
+          "g7"
+        ],
+        "grammar_third-transfer": [
+          "g21",
+          "g26",
+          "g40",
+          "g45",
+          "g59"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "third-person"
+      },
+      "eiken": {
+        "grade5": "learning",
+        "grade4": "core",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_can",
+      "name": "can・助動詞基礎",
+      "domain": "grammar",
+      "total": 6,
+      "base": 2,
+      "transfer": 4,
+      "transferRatio": 0.6666666666666666,
+      "keep": 1,
+      "revise": 5,
+      "replace": 0,
+      "ids": [
+        "g5",
+        "g8",
+        "g24",
+        "g27",
+        "g43",
+        "g46"
+      ],
+      "groups": {
+        "grammar_can": [
+          "g5",
+          "g8"
+        ],
+        "grammar_can-transfer": [
+          "g24",
+          "g27",
+          "g43",
+          "g46"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "can"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_wh",
+      "name": "疑問詞",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 1,
+      "revise": 2,
+      "replace": 0,
+      "ids": [
+        "g10",
+        "g29",
+        "g48"
+      ],
+      "groups": {
+        "grammar_wh": [
+          "g10"
+        ],
+        "grammar_wh-transfer": [
+          "g29",
+          "g48"
+        ]
+      },
+      "prerequisite": [
+        "grammar_question"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "wh-questions"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_progressive",
+      "name": "進行形",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 1,
+      "revise": 2,
+      "replace": 0,
+      "ids": [
+        "g12",
+        "g31",
+        "g50"
+      ],
+      "groups": {
+        "grammar_progressive": [
+          "g12"
+        ],
+        "grammar_progressive-transfer": [
+          "g31",
+          "g50"
+        ]
+      },
+      "prerequisite": [
+        "grammar_be",
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS1-2",
+        "unit": "progressive"
+      },
+      "eiken": {
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_past",
+      "name": "過去形",
+      "domain": "grammar",
+      "total": 6,
+      "base": 2,
+      "transfer": 4,
+      "transferRatio": 0.6666666666666666,
+      "keep": 2,
+      "revise": 4,
+      "replace": 0,
+      "ids": [
+        "g4",
+        "g9",
+        "g23",
+        "g28",
+        "g42",
+        "g47"
+      ],
+      "groups": {
+        "grammar_past": [
+          "g4",
+          "g9"
+        ],
+        "grammar_past-transfer": [
+          "g23",
+          "g28",
+          "g42",
+          "g47"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS1-2",
+        "unit": "past"
+      },
+      "eiken": {
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_future",
+      "name": "未来表現",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 1,
+      "revise": 2,
+      "replace": 0,
+      "ids": [
+        "g13",
+        "g32",
+        "g51"
+      ],
+      "groups": {
+        "grammar_future": [
+          "g13"
+        ],
+        "grammar_future-transfer": [
+          "g32",
+          "g51"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS2",
+        "unit": "future"
+      },
+      "eiken": {
+        "grade4": "bridge",
+        "grade3": "core",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_infinitive",
+      "name": "不定詞",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 0,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g14",
+        "g33",
+        "g52"
+      ],
+      "groups": {
+        "grammar_infinitive": [
+          "g14"
+        ],
+        "grammar_infinitive-transfer": [
+          "g33",
+          "g52"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS2",
+        "unit": "infinitive"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_gerund",
+      "name": "動名詞",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 0,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g15",
+        "g34",
+        "g53"
+      ],
+      "groups": {
+        "grammar_gerund": [
+          "g15"
+        ],
+        "grammar_gerund-transfer": [
+          "g34",
+          "g53"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS2",
+        "unit": "gerund"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_comparison",
+      "name": "比較",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 0,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g16",
+        "g35",
+        "g54"
+      ],
+      "groups": {
+        "grammar_comparison": [
+          "g16"
+        ],
+        "grammar_comparison-transfer": [
+          "g35",
+          "g54"
+        ]
+      },
+      "prerequisite": [
+        "grammar_be"
+      ],
+      "school": {
+        "stage": "JHS2",
+        "unit": "comparison"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_passive",
+      "name": "受動態",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 0,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g17",
+        "g36",
+        "g55"
+      ],
+      "groups": {
+        "grammar_passive": [
+          "g17"
+        ],
+        "grammar_passive-transfer": [
+          "g36",
+          "g55"
+        ]
+      },
+      "prerequisite": [
+        "grammar_be",
+        "grammar_past"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "passive"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_present_perfect",
+      "name": "現在完了",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 0,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g18",
+        "g37",
+        "g56"
+      ],
+      "groups": {
+        "grammar_present_perfect": [
+          "g18"
+        ],
+        "grammar_present_perfect-transfer": [
+          "g37",
+          "g56"
+        ]
+      },
+      "prerequisite": [
+        "grammar_past"
+      ],
+      "school": {
+        "stage": "JHS3",
+        "unit": "present-perfect"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "grammar_relative",
+      "name": "関係代名詞",
+      "domain": "grammar",
+      "total": 3,
+      "base": 1,
+      "transfer": 2,
+      "transferRatio": 0.6666666666666666,
+      "keep": 0,
+      "revise": 3,
+      "replace": 0,
+      "ids": [
+        "g19",
+        "g38",
+        "g57"
+      ],
+      "groups": {
+        "grammar_relative": [
+          "g19"
+        ],
+        "grammar_relative-transfer": [
+          "g38",
+          "g57"
+        ]
+      },
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS3",
+        "unit": "relative-clause"
+      },
+      "eiken": {
+        "grade3": "bridge",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "listening_basic",
+      "name": "基礎応答・語句",
+      "domain": "listening",
+      "total": 6,
+      "base": 1,
+      "transfer": 5,
+      "transferRatio": 0.8333333333333334,
+      "keep": 1,
+      "revise": 5,
+      "replace": 0,
+      "ids": [
+        "l1",
+        "l12",
+        "l17",
+        "l25",
+        "l31",
+        "l39"
+      ],
+      "groups": {
+        "listening_basic": [
+          "l1"
+        ],
+        "listening_basic-transfer": [
+          "l12",
+          "l17",
+          "l25",
+          "l31",
+          "l39"
+        ]
+      },
+      "prerequisite": [],
+      "school": {
+        "stage": "JHS1",
+        "unit": "listening-basic"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "listening_time",
+      "name": "数・時刻",
+      "domain": "listening",
+      "total": 9,
+      "base": 2,
+      "transfer": 7,
+      "transferRatio": 0.7777777777777778,
+      "keep": 2,
+      "revise": 7,
+      "replace": 0,
+      "ids": [
+        "l2",
+        "l5",
+        "l9",
+        "l13",
+        "l18",
+        "l22",
+        "l28",
+        "l32",
+        "l36"
+      ],
+      "groups": {
+        "listening_time": [
+          "l2",
+          "l5"
+        ],
+        "listening_time-transfer": [
+          "l9",
+          "l13",
+          "l18",
+          "l22",
+          "l28",
+          "l32",
+          "l36"
+        ]
+      },
+      "prerequisite": [
+        "listening_basic"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "numbers-time"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "listening_detail",
+      "name": "会話詳細",
+      "domain": "listening",
+      "total": 14,
+      "base": 3,
+      "transfer": 11,
+      "transferRatio": 0.7857142857142857,
+      "keep": 3,
+      "revise": 11,
+      "replace": 0,
+      "ids": [
+        "l3",
+        "l4",
+        "l7",
+        "l10",
+        "l14",
+        "l16",
+        "l19",
+        "l21",
+        "l24",
+        "l26",
+        "l29",
+        "l33",
+        "l35",
+        "l38"
+      ],
+      "groups": {
+        "listening_detail": [
+          "l3",
+          "l4",
+          "l7"
+        ],
+        "listening_detail-transfer": [
+          "l10",
+          "l14",
+          "l16",
+          "l19",
+          "l21",
+          "l24",
+          "l26",
+          "l29",
+          "l33",
+          "l35",
+          "l38"
+        ]
+      },
+      "prerequisite": [
+        "listening_basic"
+      ],
+      "school": {
+        "stage": "JHS1-3",
+        "unit": "conversation-detail"
+      },
+      "eiken": {
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "listening_main",
+      "name": "要点・意図",
+      "domain": "listening",
+      "total": 11,
+      "base": 2,
+      "transfer": 9,
+      "transferRatio": 0.8181818181818182,
+      "keep": 0,
+      "revise": 11,
+      "replace": 0,
+      "ids": [
+        "l6",
+        "l8",
+        "l11",
+        "l15",
+        "l20",
+        "l23",
+        "l27",
+        "l30",
+        "l34",
+        "l37",
+        "l40"
+      ],
+      "groups": {
+        "listening_main": [
+          "l6",
+          "l8"
+        ],
+        "listening_main-transfer": [
+          "l11",
+          "l15",
+          "l20",
+          "l23",
+          "l27",
+          "l30",
+          "l34",
+          "l37",
+          "l40"
+        ]
+      },
+      "prerequisite": [
+        "listening_detail"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "conversation-main"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "reading_detail",
+      "name": "短文詳細",
+      "domain": "reading",
+      "total": 10,
+      "base": 2,
+      "transfer": 8,
+      "transferRatio": 0.8,
+      "keep": 2,
+      "revise": 8,
+      "replace": 0,
+      "ids": [
+        "r1",
+        "r3",
+        "r9",
+        "r13",
+        "r17",
+        "r21",
+        "r25",
+        "r29",
+        "r33",
+        "r37"
+      ],
+      "groups": {
+        "reading_detail": [
+          "r1",
+          "r3"
+        ],
+        "reading_detail-transfer": [
+          "r9",
+          "r13",
+          "r17",
+          "r21",
+          "r25",
+          "r29",
+          "r33",
+          "r37"
+        ]
+      },
+      "prerequisite": [
+        "vocab_basic"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "reading-detail"
+      },
+      "eiken": {
+        "grade5": "core",
+        "grade4": "core",
+        "grade3": "prerequisite",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "reading_main",
+      "name": "主題把握",
+      "domain": "reading",
+      "total": 10,
+      "base": 2,
+      "transfer": 8,
+      "transferRatio": 0.8,
+      "keep": 1,
+      "revise": 9,
+      "replace": 0,
+      "ids": [
+        "r2",
+        "r6",
+        "r10",
+        "r14",
+        "r18",
+        "r22",
+        "r26",
+        "r30",
+        "r34",
+        "r38"
+      ],
+      "groups": {
+        "reading_main": [
+          "r2",
+          "r6"
+        ],
+        "reading_main-transfer": [
+          "r10",
+          "r14",
+          "r18",
+          "r22",
+          "r26",
+          "r30",
+          "r34",
+          "r38"
+        ]
+      },
+      "prerequisite": [
+        "reading_detail"
+      ],
+      "school": {
+        "stage": "JHS1-2",
+        "unit": "main-idea"
+      },
+      "eiken": {
+        "grade4": "core",
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "reading_inference",
+      "name": "推論",
+      "domain": "reading",
+      "total": 10,
+      "base": 2,
+      "transfer": 8,
+      "transferRatio": 0.8,
+      "keep": 1,
+      "revise": 9,
+      "replace": 0,
+      "ids": [
+        "r4",
+        "r7",
+        "r11",
+        "r15",
+        "r19",
+        "r23",
+        "r27",
+        "r31",
+        "r35",
+        "r39"
+      ],
+      "groups": {
+        "reading_inference": [
+          "r4",
+          "r7"
+        ],
+        "reading_inference-transfer": [
+          "r11",
+          "r15",
+          "r19",
+          "r23",
+          "r27",
+          "r31",
+          "r35",
+          "r39"
+        ]
+      },
+      "prerequisite": [
+        "reading_detail"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "inference"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "reading_email",
+      "name": "Eメール読解",
+      "domain": "reading",
+      "total": 10,
+      "base": 2,
+      "transfer": 8,
+      "transferRatio": 0.8,
+      "keep": 2,
+      "revise": 8,
+      "replace": 0,
+      "ids": [
+        "r5",
+        "r8",
+        "r12",
+        "r16",
+        "r20",
+        "r24",
+        "r28",
+        "r32",
+        "r36",
+        "r40"
+      ],
+      "groups": {
+        "reading_email": [
+          "r5",
+          "r8"
+        ],
+        "reading_email-transfer": [
+          "r12",
+          "r16",
+          "r20",
+          "r24",
+          "r28",
+          "r32",
+          "r36",
+          "r40"
+        ]
+      },
+      "prerequisite": [
+        "reading_detail"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "functional-text"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": false,
+      "hasBaseAndTransfer": true,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "writing_sentence",
+      "name": "基本文生成",
+      "domain": "writing",
+      "total": 0,
+      "base": 0,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 0,
+      "revise": 0,
+      "replace": 0,
+      "ids": [],
+      "groups": {},
+      "prerequisite": [
+        "grammar_present"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "sentence-writing"
+      },
+      "eiken": {
+        "grade3": "foundation",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "writing_email",
+      "name": "Eメール",
+      "domain": "writing",
+      "total": 0,
+      "base": 0,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 0,
+      "revise": 0,
+      "replace": 0,
+      "ids": [],
+      "groups": {},
+      "prerequisite": [
+        "writing_sentence"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "email-writing"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "writing_opinion",
+      "name": "意見＋理由",
+      "domain": "writing",
+      "total": 0,
+      "base": 0,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 0,
+      "revise": 0,
+      "replace": 0,
+      "ids": [],
+      "groups": {},
+      "prerequisite": [
+        "writing_sentence"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "opinion-writing"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "speaking_response",
+      "name": "基本応答",
+      "domain": "speaking",
+      "total": 0,
+      "base": 0,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 0,
+      "revise": 0,
+      "replace": 0,
+      "ids": [],
+      "groups": {},
+      "prerequisite": [
+        "listening_basic"
+      ],
+      "school": {
+        "stage": "JHS1",
+        "unit": "interaction"
+      },
+      "eiken": {
+        "grade3": "foundation",
+        "pre2": "prerequisite"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "speaking_readaloud",
+      "name": "音読",
+      "domain": "speaking",
+      "total": 0,
+      "base": 0,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 0,
+      "revise": 0,
+      "replace": 0,
+      "ids": [],
+      "groups": {},
+      "prerequisite": [
+        "reading_detail"
+      ],
+      "school": {
+        "stage": "JHS1-3",
+        "unit": "read-aloud"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "speaking_picture",
+      "name": "描写",
+      "domain": "speaking",
+      "total": 0,
+      "base": 0,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 0,
+      "revise": 0,
+      "replace": 0,
+      "ids": [],
+      "groups": {},
+      "prerequisite": [
+        "speaking_response"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "description"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    },
+    {
+      "id": "speaking_opinion",
+      "name": "意見表明",
+      "domain": "speaking",
+      "total": 0,
+      "base": 0,
+      "transfer": 0,
+      "transferRatio": 0,
+      "keep": 0,
+      "revise": 0,
+      "replace": 0,
+      "ids": [],
+      "groups": {},
+      "prerequisite": [
+        "speaking_response"
+      ],
+      "school": {
+        "stage": "JHS2-3",
+        "unit": "opinion-speaking"
+      },
+      "eiken": {
+        "grade3": "core",
+        "pre2": "core"
+      },
+      "belowPlanningMinimum": true,
+      "hasBaseAndTransfer": false,
+      "verifiedTransferPairs": 0
+    }
+  ],
+  "systemFindings": [
+    {
+      "priority": "P0",
+      "issue": "意味的に複数成立する正答を修正し再レビューする。CIの選択肢文字列一意性は意味の一意性を保証しない。"
+    },
+    {
+      "priority": "P1",
+      "issue": "60問のVocabularyの正答がすべて先頭。出題時に選択肢と正答・診断タグを同時に並べ替える。"
+    },
+    {
+      "priority": "P1",
+      "issue": "105問の置換済み問題の解説が汎用文。規則・根拠と誤答理由を個別に書く。"
+    },
+    {
+      "priority": "P1",
+      "issue": "SiblingはSkill全体のグループで、Transferはフラグのみ。対象知識を共有するbase/transferの明示リンクと独立レビューが必要。"
+    },
+    {
+      "priority": "P1",
+      "issue": "問題の学年・級には生成順や置換前属性の継承が残る。現在の級判定は推定で、学校教科書との公式対応ではない。"
+    },
+    {
+      "priority": "P2",
+      "issue": "未収録7 Skillと1問の2 Skillを補う。最低3問は今回の設計上の目安で、教育的習得を保証する基準ではない。"
+    }
+  ]
+}
