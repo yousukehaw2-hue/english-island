@@ -77,4 +77,13 @@ const changedChoices={...bank[0],c:[...bank[0].c].reverse()};
 ok("73 changed choices invalidate review",reviewForQuestion(changedChoices).stale);
 ok("74 diagnostics inside review signature",reviewForQuestion({...bank[0],mis:[]}).stale);
 ok("75 review finding schema",bank.every(q=>AI_REVIEW[q.id].findings.every(f=>f.area&&f.severity&&f.evidence&&f.action)));
+
+const initialIsland=islandGrowthView(defaultState()),matureIsland=islandGrowthView({...defaultState(),stars:360,mastery:{vocab:80,grammar:60,listening:40,reading:100}});
+ok("76 island changes with earned stars",initialIsland.decorations===0&&matureIsland.decorations===12&&matureIsland.stage>initialIsland.stage);
+ok("77 every completed quest adds visible progress",islandGrowthView({...defaultState(),stars:30}).decorations===1);
+ok("78 four facility visuals use their own mastery",matureIsland.facilities.garden.level===5&&matureIsland.facilities.workshop.level===4&&matureIsland.facilities.music.level===3&&matureIsland.facilities.library.level===6);
+ok("79 existing stars restored on reload",islandGrowthView(engineMigrate({...s,stars:240})).level===3);
+ok("80 next island threshold",islandGrowthView({...s,stars:119}).remaining===1&&islandGrowthView({...s,stars:120}).remaining===120);
+ok("81 island renderer reaches both scenes",typeof renderIslandGrowth==='function');
+const islandInput=JSON.stringify(s);islandGrowthView(s);ok("82 growth view preserves learning record",JSON.stringify(s)===islandInput);
 console.table(R);const passed=R.filter(x=>x.pass).length,all=R.every(x=>x.pass);console.log("RESULT",passed+"/"+R.length,all?"PASS":"FAIL");if(!all&&typeof process!=="undefined")process.exitCode=1;return R})();

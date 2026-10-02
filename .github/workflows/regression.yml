@@ -25,3 +25,6 @@ jobs:
       - name: Run regression and curriculum validation
         run: |
           node .ci-generated-tests.js
+
+      - name: Verify island growth UI wiring
+        run: node island-ui-tests.js
