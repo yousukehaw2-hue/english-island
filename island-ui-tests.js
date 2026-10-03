@@ -9,6 +9,7 @@ function makeDocument(){
    setAttribute(k,v){this.attrs[k]=v},
    replaceChildren(){this.children=[]},appendChild(n){this.children.push(n)}};
   for(const [k,v] of Object.entries(attrs))if(k.startsWith('data-'))node.dataset[k.slice(5).replace(/-([a-z])/g,(_,x)=>x.toUpperCase())]=v;
+  Object.defineProperty(node,'className',{get(){return this.attrs.class||''},set(v){this.attrs.class=v}});
   Object.defineProperty(node,'innerHTML',{get(){return this.markup||''},set(value){this.markup=value;parse(value)}});
   nodes.push(node);if(attrs.id)ids[attrs.id]=node;return node;
  }
@@ -43,3 +44,13 @@ assert(app.document.querySelectorAll('[data-facility-level="library"]').every(n=
 assert(app.document.querySelectorAll('[data-island-scene]').every(n=>n.dataset.growthStage==='3'));
 assert.equal(JSON.parse(storage.getItem('ei-state')).stars,360);
 console.log('PASS production island rendering, quest reward, reload persistence and four facility growth.');
+vm.runInContext('state=engineMigrate(null);state.diagnosed=true;mode="daily";qs=[bank.find(q=>q.id==="v1")];begin();answer((qs[0].a+1)%4,document.getElementById("answers").children[(qs[0].a+1)%4]);',app);
+assert(app.document.getElementById('feedback').innerHTML.includes('次の確認'),'missing remediation guidance');
+assert.equal(JSON.parse(storage.getItem('ei-state')).remediationQueue.length,1);
+app=boot();vm.runInContext('mode="daily";qs=pickDaily();begin();',app);
+assert(vm.runInContext('qs.some(q=>q.id==="v1")&&state.remediationQueue[0].phase==="base"',app),'reload did not schedule remediation');
+vm.runInContext('qs=[bank.find(q=>q.id==="v1")];begin();answer(qs[0].a,document.getElementById("answers").children[qs[0].a]);',app);
+assert.equal(JSON.parse(storage.getItem('ei-state')).remediationQueue[0].phase,'transfer');
+app=boot();vm.runInContext('mode="daily";qs=pickDaily();begin();',app);
+assert(vm.runInContext('qs.some(q=>q.target_id===bank.find(b=>b.id==="v1").target_id&&q.learning_role==="transfer")',app),'next quest did not include transfer');
+console.log('PASS production choice answers, feedback, saved remediation and next-quest transfer wiring.');
