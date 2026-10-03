@@ -54,3 +54,10 @@ assert.equal(JSON.parse(storage.getItem('ei-state')).remediationQueue[0].phase,'
 app=boot();vm.runInContext('mode="daily";qs=pickDaily();begin();',app);
 assert(vm.runInContext('qs.some(q=>q.target_id===bank.find(b=>b.id==="v1").target_id&&q.learning_role==="transfer")',app),'next quest did not include transfer');
 console.log('PASS production choice answers, feedback, saved remediation and next-quest transfer wiring.');
+vm.runInContext('state.stars=5400;state.buddy="squirrel";state.studyDays=Array.from({length:21},(_,i)=>new Date(Date.UTC(2026,0,i+1)).toISOString().slice(0,10));save();',app);
+assert(app.document.querySelectorAll('[data-island-landmarks]').every(n=>n.children.length===9),'long-term landmarks missing');
+assert(app.document.querySelectorAll('[data-buddy]').every(n=>n.dataset.character==='squirrel'&&n.dataset.buddyLook==='21'),'buddy illustration/accessory missing');
+app=boot();assert(app.document.querySelectorAll('[data-island-landmarks]').every(n=>n.children.length===9),'reload lost milestones');
+vm.runInContext('state.stars=14400;save();',app);
+assert(app.document.querySelectorAll('[data-island-chapter]').every(n=>n.textContent.includes('夏')),'season chapter missing');
+console.log('PASS permanent landmarks, buddy art/accessories, migration and seasonal chapter UI.');
