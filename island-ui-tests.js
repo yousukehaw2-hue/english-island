@@ -6,7 +6,7 @@ function makeDocument(){
  function element(tag,attrs={}){
   const node={tagName:tag,dataset:{},style:{},children:[],textContent:'',attrs,
    classList:{add(){},remove(){},toggle(){}},
-   setAttribute(k,v){this.attrs[k]=v},
+   setAttribute(k,v){this.attrs[k]=v},addEventListener(k,fn){(this.listeners||(this.listeners={}))[k]=fn},
    replaceChildren(){this.children=[]},appendChild(n){this.children.push(n)}};
   for(const [k,v] of Object.entries(attrs))if(k.startsWith('data-'))node.dataset[k.slice(5).replace(/-([a-z])/g,(_,x)=>x.toUpperCase())]=v;
   Object.defineProperty(node,'className',{get(){return this.attrs.class||''},set(v){this.attrs.class=v}});
@@ -55,9 +55,16 @@ app=boot();vm.runInContext('mode="daily";qs=pickDaily();begin();',app);
 assert(vm.runInContext('qs.some(q=>q.target_id===bank.find(b=>b.id==="v1").target_id&&q.learning_role==="transfer")',app),'next quest did not include transfer');
 console.log('PASS production choice answers, feedback, saved remediation and next-quest transfer wiring.');
 vm.runInContext('state.stars=5400;state.buddy="squirrel";state.studyDays=Array.from({length:21},(_,i)=>new Date(Date.UTC(2026,0,i+1)).toISOString().slice(0,10));save();',app);
-assert(app.document.querySelectorAll('[data-island-landmarks]').every(n=>n.children.length===9),'long-term landmarks missing');
+assert(app.document.querySelectorAll('[data-island-landmarks]').every(n=>n.children.length===1),'focused landmark not shown');
 assert(app.document.querySelectorAll('[data-buddy]').every(n=>n.dataset.character==='squirrel'&&n.dataset.buddyLook==='21'),'buddy illustration/accessory missing');
-app=boot();assert(app.document.querySelectorAll('[data-island-landmarks]').every(n=>n.children.length===9),'reload lost milestones');
+app=boot();assert(app.document.querySelectorAll('[data-island-landmarks]').every(n=>n.children.length===1),'reload lost featured landmark');
 vm.runInContext('state.stars=14400;save();',app);
 assert(app.document.querySelectorAll('[data-island-chapter]').every(n=>n.textContent.includes('夏')),'season chapter missing');
-console.log('PASS permanent landmarks, buddy art/accessories, migration and seasonal chapter UI.');
+console.log('PASS featured landmark, buddy art/accessories, migration and seasonal chapter UI.');
+assert.equal(app.document.querySelectorAll('[data-island-area-tabs]').length,1,'island area selector missing');
+assert.equal(app.document.querySelectorAll('[data-island-area-tabs]')[0].children.length,5,'five area tabs missing');
+vm.runInContext('selectedIslandArea="library";renderIslandLayout(state)',app);
+assert(app.document.querySelectorAll('[data-island-landmarks]').every(n=>n.children.length===0),'district view must not overlay landmark');
+assert(app.document.querySelectorAll('[data-island-decorations]').every(n=>n.children.length<=3),'decorations overflow');
+assert.equal(JSON.parse(storage.getItem('ei-state')).stars,14400,'area switch must preserve stars');
+console.log('PASS uncluttered area selector, scene density, and persistent learning data.');
