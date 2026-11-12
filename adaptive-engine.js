@@ -68,10 +68,19 @@ function adaptiveQuestPlan(raw,day,targetOverride){
  }
  const weakTypes=['vocab','grammar','listening','reading'].sort((a,b)=>(st.mastery?.[a]||0)-(st.mastery?.[b]||0));
  const ready=bank.filter(q=>questionReady(st,q));
- const recent=q=>{const last=st.questionHistory?.[q.id];return last&&(new Date(day+'T12:00:00Z')-new Date(last+'T12:00:00Z'))/86400000<3};
+ const ageDays=last=>last?(new Date(day+'T12:00:00Z')-new Date(last+'T12:00:00Z'))/86400000:Infinity;
+ const recent=q=>ageDays(st.questionHistory?.[q.id])<3;
+ // Keep scheduled review/remediation above, but prevent regular quests from
+ // selecting the same target or question again while novel material remains.
+ const targetLastSeen={};
+ for(const q of bank){const last=st.questionHistory?.[q.id];if(last&&(!targetLastSeen[q.target_id]||last>targetLastSeen[q.target_id]))targetLastSeen[q.target_id]=last;}
  const rank=q=>{
   const p=st.targetProgress[q.target_id]||{};
-  return (recent(q)?1000:0)+(q.learning_role==='transfer'&&!p.transferConfirmed?0:q.learning_role==='base'&&!p.basePassed?10:30)+(st.skillMastery?.[q.skill]||30);
+  const questionAge=ageDays(st.questionHistory?.[q.id]);
+  const targetAge=ageDays(targetLastSeen[q.target_id]);
+  const novelty=Number.isFinite(questionAge)?(questionAge<3?1000:questionAge<7?180:40):0;
+  const targetRepeat=targetAge<3?120:targetAge<7?30:0;
+  return novelty+targetRepeat+(q.learning_role==='transfer'&&!p.transferConfirmed?0:q.learning_role==='base'&&!p.basePassed?10:30)+(st.skillMastery?.[q.skill]||30);
  };
  const queues=Object.fromEntries(weakTypes.map(type=>[type,ready.filter(q=>q.type===type).sort((a,b)=>rank(a)-rank(b)||a.id.localeCompare(b.id,undefined,{numeric:true}))]));
  // Reserve one eligible question from each domain even when weakness reviews are concentrated.
